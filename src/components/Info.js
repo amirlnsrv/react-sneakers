@@ -15,7 +15,7 @@ const Info = ({ title, image, description }) => {
         }}
         className="greenButton"
       >
-        <img className="arrowBack" src="./img/arrow.svg" alt="Arrow" />
+        <img className="arrowBack" src="img/arrow.svg" alt="Arrow" />
         Вернуться назад
       </button>
     </div>

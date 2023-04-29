@@ -141,7 +141,7 @@ function App() {
 
         <Header onClickCart={() => setCartOpened(true)} />
 
-        <Route path="/" exact>
+        <Route path="/react-sneakers" exact>
           <Home
             sneakers={sneakers}
             cartSneakers={cartSneakers}

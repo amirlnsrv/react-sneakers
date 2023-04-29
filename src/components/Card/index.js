@@ -48,7 +48,7 @@ const Card = ({
           {onFavourite && (
             <div className={styles.favourite} onClick={onClickFavourite}>
               <img
-                src={isFavourite ? "./img/liked.svg" : "./img/unliked.svg"}
+                src={isFavourite ? "img/liked.svg" : "img/unliked.svg"}
                 alt="Unliked"
               />
             </div>
@@ -67,8 +67,8 @@ const Card = ({
                 onClick={onClickPlus}
                 src={
                   isSneakerAdded(id)
-                    ? "./img/btn-checked.svg"
-                    : "./img/btn-plus.svg"
+                    ? "img/btn-checked.svg"
+                    : "img/btn-plus.svg"
                 }
                 alt="plus"
               />
