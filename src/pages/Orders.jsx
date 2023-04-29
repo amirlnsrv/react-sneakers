@@ -13,7 +13,7 @@ const Orders = () => {
     async function fetchData() {
       try {
         const { data } = await axios.get(
-          "https://644023833dee5b763e2ff385.mockapi.io/orders"
+          "https://react-sneakers-db.onrender.com/orders"
         );
         setOrders(data.reduce((prev, obj) => [...prev, ...obj.sneakers], []));
         setIsLoading(false);

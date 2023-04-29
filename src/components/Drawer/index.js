@@ -18,7 +18,7 @@ const Drawer = ({ onClose, sneakers = [], onRemove, opened }) => {
     try {
       setIsLoading(true);
       const { data } = await axios.post(
-        "https://644023833dee5b763e2ff385.mockapi.io/orders",
+        "https://react-sneakers-db.onrender.com/orders",
         {
           sneakers: cartSneakers,
         }
@@ -29,7 +29,9 @@ const Drawer = ({ onClose, sneakers = [], onRemove, opened }) => {
 
       for (let i = 0; i < cartSneakers.length; i++) {
         const sneaker = cartSneakers[i];
-        await axios.delete(`http://localhost:3002/cart/${sneaker.id}`);
+        await axios.delete(
+          `https://react-sneakers-db.onrender.com/cart/${sneaker.id}`
+        );
         delay(1000);
       }
     } catch (error) {

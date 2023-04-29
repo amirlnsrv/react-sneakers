@@ -23,9 +23,9 @@ function App() {
       try {
         const [cartResponse, favouritesResponse, sneakersResponse] =
           await Promise.all([
-            axios.get("http://localhost:3002/cart"),
-            axios.get("http://localhost:3002/favourites"),
-            axios.get("http://localhost:3002/sneakers"),
+            axios.get("https://react-sneakers-db.onrender.com/cart"),
+            axios.get("https://react-sneakers-db.onrender.com/favourites"),
+            axios.get("https://react-sneakers-db.onrender.com/sneakers"),
           ]);
 
         setIsLoading(false);
@@ -50,10 +50,15 @@ function App() {
         setCartSneakers((prev) =>
           prev.filter((sneaker) => Number(sneaker.parentId) !== Number(obj.id))
         );
-        await axios.delete(`http://localhost:3002/cart/${findItem.id}`);
+        await axios.delete(
+          `https://react-sneakers-db.onrender.com/cart/${findItem.id}`
+        );
       } else {
         setCartSneakers((prev) => [...prev, obj]);
-        const { data } = await axios.post("http://localhost:3002/cart", obj);
+        const { data } = await axios.post(
+          "https://react-sneakers-db.onrender.com/cart",
+          obj
+        );
         setCartSneakers((prev) =>
           prev.map((sneaker) => {
             if (sneaker.parentId === data.parentId) {
@@ -73,7 +78,7 @@ function App() {
 
   const onRemoveSneaker = (id) => {
     try {
-      axios.delete(`http://localhost:3002/cart/${id}`);
+      axios.delete(`https://react-sneakers-db.onrender.com/cart/${id}`);
       setCartSneakers((prev) =>
         prev.filter((sneaker) => Number(sneaker.id) !== Number(id))
       );
@@ -86,13 +91,15 @@ function App() {
   const onAddToFavourite = async (obj) => {
     try {
       if (favourites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
-        axios.delete(`http://localhost:3002/favourites/${obj.id}`);
+        axios.delete(
+          `https://react-sneakers-db.onrender.com/favourites/${obj.id}`
+        );
         setFavourites((prev) =>
           prev.filter((sneaker) => Number(sneaker.id) !== Number(obj.id))
         );
       } else {
         const { data } = await axios.post(
-          "http://localhost:3002/favourites",
+          "https://react-sneakers-db.onrender.com/favourites",
           obj
         );
         setFavourites((prev) => [...prev, data]);
